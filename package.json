@@ -1,0 +1,18 @@
+{
+  "name": "create-package-javascript",
+  "version": "0.0.1",
+  "description": "Utility to create npm packages",
+  "author": "Dima Parzhitsky <parzhitsky@gmail.com>",
+  "license": "MIT",
+  "keywords": [],
+  "repository": "github:parzh/create-package-javascript",
+  "homepage": "https://github.com/parzh/create-package-javascript#readme",
+  "bugs": {
+    "url": "https://github.com/parzh/create-package-javascript/issues",
+    "email": "parzhitsky@gmail.com"
+  },
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
