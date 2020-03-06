@@ -11,7 +11,7 @@
     "url": "https://github.com/parzh/create-package-javascript/issues",
     "email": "parzhitsky@gmail.com"
   },
-  "main": "src/index.js",
+  "bin": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   }
