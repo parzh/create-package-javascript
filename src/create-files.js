@@ -26,7 +26,7 @@ async function createFiles(folder) {
 
 			const entryFileName = path.resolve(...entryFileNameChunks);
 
-			console.log(`Creating file:\n${ entryFileName }\n`);
+			console.log(`Creating file:\n${ entryFileName }`);
 
 			fs.mkdirSync(path.dirname(entryFileName), { recursive: true });
 
@@ -40,6 +40,7 @@ async function createFiles(folder) {
 
 				stream.pipe(target);
 				stream.on("end", () => {
+					console.log(); // empty line
 					target.close();
 					zip.readEntry();
 				});
