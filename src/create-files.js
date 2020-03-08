@@ -18,37 +18,32 @@ async function createFiles(folder) {
 
 		zip.on("entry", (/** @type {import("yauzl").Entry} */ entry) => {
 			if (entry.fileName.endsWith("/"))
-				zip.readEntry();
+				return zip.readEntry();
 
-			else {
-				const entryFileNameChunks = entry.fileName.split("/");
+			const entryFileNameChunks = entry.fileName.split("/");
 
-				entryFileNameChunks.splice(0, 1, folder);
+			entryFileNameChunks.splice(0, 1, folder);
 
-				const entryFileName = path.resolve(...entryFileNameChunks);
+			const entryFileName = path.resolve(...entryFileNameChunks);
 
-				console.log(`Creating file:\n${ entryFileName }\n`);
+			console.log(`Creating file:\n${ entryFileName }\n`);
 
-				fs.mkdirSync(path.dirname(entryFileName), { recursive: true });
+			fs.mkdirSync(path.dirname(entryFileName), { recursive: true });
 
-				zip.openReadStream(entry, (error, stream) => {
-					if (error) throw error;
+			zip.openReadStream(entry, (error, stream) => {
+				if (error) throw error;
 
-					if (!stream)
-						zip.readEntry();
+				if (!stream)
+					return zip.readEntry();
 
-					else {
-						const target = fs.createWriteStream(entryFileName);
+				const target = fs.createWriteStream(entryFileName);
 
-						stream.pipe(target);
-
-						stream.on("end", () => {
-							target.close();
-							zip.readEntry();
-						});
-					}
+				stream.pipe(target);
+				stream.on("end", () => {
+					target.close();
+					zip.readEntry();
 				});
-			}
+			});
 		});
 
 		zip.readEntry();
