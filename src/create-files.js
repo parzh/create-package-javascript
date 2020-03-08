@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const fetch = require("node-fetch");
 const { fromBuffer } = require("yauzl");
+const RemoveAuthor = require("./remove-author");
 
 /**
  * @param {string} folder Folder name (includes valid package name)
@@ -38,12 +39,17 @@ async function createFiles(folder) {
 
 				const target = fs.createWriteStream(entryFileName);
 
-				stream.pipe(target);
 				stream.on("end", () => {
 					console.log(); // empty line
 					target.close();
 					zip.readEntry();
 				});
+
+				if (entryFileName.endsWith("package.json"))
+					stream.pipe(new RemoveAuthor()).pipe(target);
+
+				else
+					stream.pipe(target);
 			});
 		});
 
