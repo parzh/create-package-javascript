@@ -1,4 +1,2 @@
 #!/usr/bin/env node
-module.exports = null;
-
-console.log(process.argv[2]);
+require("./create-package-javascript")();
