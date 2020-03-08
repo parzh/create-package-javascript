@@ -10,10 +10,10 @@ class RemoveAuthor extends Transform {
 		try {
 			const lines = chunk.toString("utf8").split("\n");
 			const index = lines.findIndex((line) => line.includes(`"author": "`));
-	
+
 			if (index !== -1)
 				lines.splice(index, 1);
-	
+
 			callback(null, lines.join("\n"));
 		}
 
