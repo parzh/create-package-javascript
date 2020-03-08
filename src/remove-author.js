@@ -9,7 +9,7 @@ class RemoveAuthor extends Transform {
 	_transform(chunk, encoding, callback) {
 		try {
 			const lines = chunk.toString("utf8").split("\n");
-			const index = lines.findIndex((line) => line.includes(`"author": "`));
+			const index = lines.findIndex((line) => line.match(/^\s+"author"\s*:\s*/));
 
 			if (index !== -1)
 				lines.splice(index, 1);
