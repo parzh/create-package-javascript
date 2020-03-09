@@ -16,7 +16,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
     "dev": "npm run build -- --watch --noEmit",
-    "start": ".\\create-package-javascript",
+    "start": "node --unhandled-rejections=strict --require ts-node/register src",
     "postinstall": "npm run build",
     "prepublishOnly": "npm run build -- --noEmit",
     "postpublish": "git push --follow-tags"
