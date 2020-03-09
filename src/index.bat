@@ -1,0 +1,1 @@
+node --unhandled-rejections=strict --require ts-node/register src %1 %2 %3

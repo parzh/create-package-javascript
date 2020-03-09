@@ -11,7 +11,7 @@ export default function getPackageName(): string {
 	} = validate(name);
 
 	if (!validForNewPackages)
-		throw new Error([ ...errors, ...warnings ][0] || "Invalid package name");
+		throw new Error(`${ [ ...errors, ...warnings ][0] ?? "Invalid package name" }: "${ name }"`);
 
 	return name;
 };
