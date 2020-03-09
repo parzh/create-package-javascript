@@ -2,14 +2,13 @@ const fs = require("fs");
 const path = require("path");
 const fetch = require("node-fetch");
 const { fromBuffer } = require("yauzl");
-const RemoveAuthor = require("./remove-author");
 
 /**
- * @param {string} folder Folder name (includes valid package name)
+ * @param {string} repoPath Path to repo (includes valid package name)
  * @returns {Promise<void>}
  */
 module.exports =
-async function createFiles(folder) {
+async function createFiles(repoPath) {
 	const response = await fetch("https://github.com/parzh/package-javascript/archive/master.zip");
 	const buffer = await response.buffer();
 
@@ -29,7 +28,7 @@ async function createFiles(folder) {
 
 				const entryFileNameChunks = entry.fileName.split("/");
 
-				entryFileNameChunks.splice(0, 1, folder);
+				entryFileNameChunks.splice(0, 1, repoPath);
 
 				const entryFileName = path.resolve(...entryFileNameChunks);
 
@@ -52,11 +51,7 @@ async function createFiles(folder) {
 						next();
 					});
 
-					if (entryFileName.endsWith("package.json"))
-						entryStream.pipe(new RemoveAuthor()).pipe(targetFile);
-
-					else
-						entryStream.pipe(targetFile);
+					entryStream.pipe(targetFile);
 				});
 			});
 
