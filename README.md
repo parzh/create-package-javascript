@@ -26,6 +26,8 @@ npm init package-javascript my-package
 npm init package-javascript my-foo-package --in ./path/to/my-packages/foo
 ```
 
+### `--in`
+
 By default, all the files are put to a new directory named after the package name:
 
 ```sh
@@ -53,6 +55,8 @@ npm init package-javascript my-foo-package --in ./path/to/my-packages/foo
   foo/
     package.json # "name": "my-foo-package"
 ```
+
+### Different versions
 
 By default, the **`create-package-javascript@latest`** is used. To use different version of **`create-package-javascript`**, consider this syntax:
 
