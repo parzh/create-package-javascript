@@ -1,7 +1,7 @@
 {
   "name": "create-package-javascript",
   "version": "0.2.6",
-  "description": "Utility to create npm packages",
+  "description": "Recklessly create npm packages left and right with this single command",
   "author": "Dima Parzhitsky <parzhitsky@gmail.com>",
   "license": "MIT",
   "keywords": [],
