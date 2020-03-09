@@ -1,6 +1,6 @@
-const { resolve } = require("path");
-const { readFile, writeFile } = require("fs");
-const { promisify } = require("util");
+import { resolve } from "path"
+import { readFile, writeFile } from "fs"
+import { promisify } from "util"
 
 /** @private */
 const read = promisify(readFile);
@@ -8,13 +8,7 @@ const read = promisify(readFile);
 /** @private */
 const write = promisify(writeFile);
 
-/**
- * @param {string} repo Path to local repo
- * @param {string} name Package name
- * @returns {Promise<void>}
- */
-module.exports =
-async function setPackageJson(repo, name) {
+export default async function setPackageJson(repo: string, name: string): Promise<void> {
 	const filePath = resolve(repo, "package.json");
 	const oldContents = await read(filePath, "utf8");
 

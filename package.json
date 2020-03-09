@@ -1,6 +1,6 @@
 {
   "name": "create-package-javascript",
-  "version": "0.2.0",
+  "version": "0.2.4",
   "description": "Utility to create npm packages",
   "author": "Dima Parzhitsky <parzhitsky@gmail.com>",
   "license": "MIT",
@@ -11,20 +11,25 @@
     "url": "https://github.com/parzh/create-package-javascript/issues",
     "email": "parzhitsky@gmail.com"
   },
-  "bin": "src/index.js",
+  "bin": "./cli.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --unhandled-rejections=strict src",
+    "build": "tsc",
+    "dev": "npm run build -- --watch --noEmit",
+    "start": "node --unhandled-rejections=strict --require ts-node/register src",
+    "postinstall": "npm run build",
+    "prepublishOnly": "npm run build -- --noEmit",
     "postpublish": "git push --follow-tags"
   },
-  "devDependencies": {
+  "dependencies": {
     "@types/node": "13.9.0",
     "@types/node-fetch": "2.5.5",
-    "@types/yauzl": "2.9.1"
-  },
-  "dependencies": {
+    "@types/validate-npm-package-name": "3.0.0",
+    "@types/yauzl": "2.9.1",
     "commander": "4.1.1",
     "node-fetch": "2.6.0",
+    "ts-node": "8.6.2",
+    "typescript": "3.8.3",
     "validate-npm-package-name": "3.0.0",
     "yauzl": "2.10.0"
   }
