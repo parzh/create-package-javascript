@@ -1,4 +1,4 @@
-<center>
+<p align="center">
 
   <a href="https://github.com/parzh/create-package-javascript">
     <img src="https://badge.fury.io/gh/parzh%2Fcreate-package-javascript.svg">
@@ -8,22 +8,14 @@
     <img src="https://badge.fury.io/js/create-package-javascript.svg">
   </a>
 
-</center>
+</p>
 
-<center>
+<h1 align="center">create-package-javascript</h1>
+<h3 align="center">Utility to create npm packages</h3>
 
-# create-package-javascript
-
-<big>Utility to create npm packages</big>
-
-<big>
-
-```sh
-npm init package-javascript <name> [--in <path>]
-```
-
-</big>
-</center>
+<pre align="center">
+npm init package-javascript &lt;name&gt; [--in &lt;path&gt;]
+</pre>
 
 ```sh
 npm init package-javascript my-package
@@ -32,15 +24,11 @@ npm init package-javascript my-foo-package --in ./path/to/my-packages/foo
 
 ## Usage
 
-`create-package-javascript` was designed with "<code>npm init &hellip;</code>" approach in mind ([learn more](https://docs.npmjs.com/cli/init)):
+`create-package-javascript` was designed with <code>npm init &hellip;</code> approach in mind ([learn more](https://docs.npmjs.com/cli/init)):
 
-<big>
-<center>
-<pre>
+<pre align="center">
 npm init package-javascript <&hellip;<i>options</i>>
 </pre>
-</center>
-</big>
 
 By default, all the files are put to a new directory named after the package name:
 
@@ -72,6 +60,6 @@ npm init package-javascript my-foo-package --in ./path/to/my-packages/foo
 
 By default, the `create-package-javascript@latest` is used. To use different version of `create-package-javascript`, consider this syntax:
 
-<pre>
-npm init package-javascript@next <&hellip;<i>options</i>>
+<pre align="center">
+npm init package-javascript@<<i>version</i>> <&hellip;<i>options</i>>
 </pre>
