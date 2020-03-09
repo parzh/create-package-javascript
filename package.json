@@ -11,10 +11,14 @@
     "url": "https://github.com/parzh/create-package-javascript/issues",
     "email": "parzhitsky@gmail.com"
   },
-  "bin": "src/index",
+  "bin": "create-package-javascript",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": ".\\src\\index",
+    "build": "tsc",
+    "dev": "npm run build -- --watch --noEmit",
+    "start": ".\\create-package-javascript",
+    "postinstall": "npm run build",
+    "prepublishOnly": "npm run build -- --noEmit",
     "postpublish": "git push --follow-tags"
   },
   "devDependencies": {
