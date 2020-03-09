@@ -15,6 +15,8 @@
 
 ## Usage
 
+> See https://github.com/parzh/create-package-typescript for adding type-safety to the package
+
 <pre align="center">
 npm init package-javascript <<i>name</i>> [--in <<i>path</i>>]
 </pre>
