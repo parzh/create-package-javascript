@@ -1,5 +1,17 @@
 <center>
 
+  <a href="https://github.com/parzh/create-package-javascript">
+    <img src="https://badge.fury.io/gh/parzh%2Fcreate-package-javascript.svg">
+  </a>
+
+  <a href="https://www.npmjs.com/package/create-package-javascript">
+    <img src="https://badge.fury.io/js/create-package-javascript.svg">
+  </a>
+
+</center>
+
+<center>
+
 # create-package-javascript
 
 <big>Utility to create npm packages</big>
