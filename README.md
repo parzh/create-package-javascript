@@ -1,56 +1,65 @@
+<center>
+
 # create-package-javascript
 
-Utility to create npm packages
+<big>Utility to create npm packages</big>
+
+<big>
 
 ```sh
 npm init package-javascript <name> [--in <path>]
 ```
 
+</big>
+</center>
+
 ```sh
 npm init package-javascript my-package
-npm init package-javascript my-foo-package --in ./my-packages/foo
+npm init package-javascript my-foo-package --in ./path/to/my-packages/foo
 ```
 
-## Usage:
+## Usage
 
-### As initializer (recommended)
+`create-package-javascript` was designed with "<code>npm init &hellip;</code>" approach in mind ([learn more](https://docs.npmjs.com/cli/init)):
 
-See <code>npm init &hellip;</code> examples above, &mdash; `create-package-javascript` was designed with this approach in mind ([learn more](https://docs.npmjs.com/cli/init) about `npm init` works):
-
+<big>
+<center>
 <pre>
 npm init package-javascript <&hellip;<i>options</i>>
 </pre>
+</center>
+</big>
 
-For example, this command:
+By default, all the files are put to a new directory named after the package name:
 
 ```sh
 cd ~
-npm init package-javascript my-foo-package --in ./my-packages/foo
+npm init package-javascript my-package
+```
+
+```yml
+~/
+  my-package/
+    package.json # "name": "my-package"
+```
+
+This behavior can be overriden with `--in` option. For example, this command:
+
+```sh
+cd ~
+npm init package-javascript my-foo-package --in ./path/to/my-packages/foo
 ```
 
 &hellip; creates these files:
 
 ```yml
-~/
-  my-packages/
-    foo/
-      src/
-        index.js
-      .gitignore
-      package.json	# "name": "my-foo-package",
-      				# "version": "0.0.1"
-      README.md
+~/path/to/my-packages/
+  foo/
+    package.json # "name": "my-foo-package"
 ```
 
-### Via [`npx`]((https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b))
+By default, the `create-package-javascript@latest` is used. To use different version of `create-package-javascript`, consider this syntax:
 
 <pre>
-npx create-package-javascript <&hellip;<i>options</i>>
-</pre>
-
-### As a globally-instaled package (☹ not recommended)
-
-<pre>
-npm install --global create-package-javascript
-create-package-javascript <&hellip;<i>options</i>>
+npm init package-javascript@next <&hellip;<i>options</i>>
 </pre>
