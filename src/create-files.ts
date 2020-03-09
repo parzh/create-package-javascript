@@ -1,14 +1,10 @@
-const fs = require("fs");
-const path = require("path");
-const fetch = require("node-fetch").default;
-const { fromBuffer } = require("yauzl");
+import fs from "fs";
+import path from "path";
+import fetch from "node-fetch";
+import type { Entry } from "yauzl";
+import { fromBuffer } from "yauzl";
 
-/**
- * @param {string} repoPath Path to repo
- * @returns {Promise<void>}
- */
-module.exports =
-async function createFiles(repoPath) {
+export default async function createFiles(repoPath: string): Promise<void> {
 	const response = await fetch("https://github.com/parzh/package-javascript/archive/master.zip");
 	const buffer = await response.buffer();
 
@@ -22,7 +18,7 @@ async function createFiles(repoPath) {
 
 			const next = () => zip.entriesRead < zip.entryCount ? zip.readEntry() : resolve();
 
-			zip.on("entry", (/** @type {import("yauzl").Entry} */ entry) => {
+			zip.on("entry", (entry: Entry) => {
 				if (entry.fileName.endsWith("/"))
 					return next();
 
