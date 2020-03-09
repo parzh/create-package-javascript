@@ -4,7 +4,7 @@ const fetch = require("node-fetch").default;
 const { fromBuffer } = require("yauzl");
 
 /**
- * @param {string} repoPath Path to repo (includes valid package name)
+ * @param {string} repoPath Path to repo
  * @returns {Promise<void>}
  */
 module.exports =

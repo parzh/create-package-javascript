@@ -1,4 +1,5 @@
 const validate = require("validate-npm-package-name");
+const { args } = require("./program");
 
 /**
  * @returns {string} the first CLI argument
@@ -6,7 +7,7 @@ const validate = require("validate-npm-package-name");
  */
 module.exports =
 function getPackageName() {
-	const [ , , name ] = process.argv;
+	const [ name ] = args;
 
 	/** @type {import("validate-npm-package-name").Result} */
 	const {

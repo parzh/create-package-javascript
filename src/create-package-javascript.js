@@ -1,5 +1,5 @@
-const { resolve } = require("path");
 const getPackageName = require("./get-package-name");
+const getRepoPath = require("./get-repo-path");
 const createFiles = require("./create-files");
 const setPackageJson = require("./set-package-json");
 
@@ -7,7 +7,7 @@ const setPackageJson = require("./set-package-json");
 const name = getPackageName();
 
 /** @private */
-const repo = resolve(process.cwd(), name);
+const repo = getRepoPath(name);
 
 module.exports =
 async function main() {
