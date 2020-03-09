@@ -8,8 +8,7 @@ npm init package-javascript <name> [--in <path>]
 
 ```sh
 npm init package-javascript my-package
-npm init package-javascript my-package-foo --in ./my-packages/foo
-npm init package-javascript my-package-bar --in ./my-packages/bar
+npm init package-javascript my-foo-package --in ./my-packages/foo
 ```
 
 ## Usage:
@@ -21,6 +20,27 @@ See <code>npm init &hellip;</code> examples above, &mdash; `create-package-javas
 <pre>
 npm init package-javascript <&hellip;<i>options</i>>
 </pre>
+
+For example, this command:
+
+```sh
+cd ~
+npm init package-javascript my-foo-package --in ./my-packages/foo
+```
+
+&hellip; creates these files:
+
+```yml
+~/
+  my-packages/
+    foo/
+      src/
+        index.js
+      .gitignore
+      package.json	# "name": "my-foo-package",
+      				# "version": "0.0.1"
+      README.md
+```
 
 ### Via [`npx`]((https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b))
 
